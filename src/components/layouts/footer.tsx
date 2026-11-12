@@ -38,10 +38,10 @@ export default function Footer() {
           </div>
 
           {/* NAVIGATION */}
-          <div>
+          <div className="md:pl-20">
             <div className="flex h-12 items-center">
               <h3 className="text-base font-semibold tracking-wide text-white">
-                Navigasi
+                NAVIGASI
               </h3>
             </div>
 
@@ -65,10 +65,10 @@ export default function Footer() {
           </div>
 
           {/* DEVELOPER */}
-          <div>
+          <div className="md:pl-10">
             <div className="flex h-12 items-center">
               <h3 className="text-base font-semibold tracking-wide text-white">
-                Pengembang
+                PENGEMBANG
               </h3>
             </div>
 
@@ -92,11 +92,12 @@ export default function Footer() {
         {/* BOTTOM FOOTER */}
         <div className="flex flex-col items-center justify-between gap-5 pt-7 text-center sm:flex-row sm:text-left">
           <p className="text-xs text-slate-500">
-            © 2026 EduQuest. Hak cipta dilindungi.
-          </p>
-
-          <p className="text-xs text-slate-500">
-            Dibuat dengan penuh dedikasi untuk dunia pendidikan.
+            © 2026{" "}
+            <span className="font-['Poppins',sans-serif] font-semibold">
+              <span className="text-white">Edu</span>
+              <span className="text-[#8ECAE6]">Quest.</span>
+            </span>{" "}
+            All rights reserved.
           </p>
 
           <Link
