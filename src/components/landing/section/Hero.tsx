@@ -1,105 +1,144 @@
-import Link from "next/link";
-import { ArrowRight, BookOpen, GraduationCap } from "lucide-react";
+"use client";
+
+import { useEffect, useState } from "react";
 import Container from "@/components/layouts/container";
 
 export default function Hero() {
+  const words = ["Platform media", "pembelajaran", "tata surya"];
+  const fullText = words.join(" ");
+
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && displayText === fullText) {
+      timeout = setTimeout(() => setIsDeleting(true), 1800);
+    } else if (isDeleting && displayText === "") {
+      timeout = setTimeout(() => setIsDeleting(false), 500);
+    } else {
+      timeout = setTimeout(
+        () => {
+          setDisplayText((current) =>
+            isDeleting
+              ? current.slice(0, -1)
+              : fullText.slice(0, current.length + 1),
+          );
+        },
+        isDeleting ? 65 : 110,
+      );
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting]);
+
+  const firstLine = displayText.slice(0, 14);
+  const secondLine = displayText.slice(15, 27);
+  const thirdLine = displayText.slice(28);
+
   return (
     <section
       id="home"
-      className="flex min-h-[85vh] items-center bg-white pt-24 pb-16"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#09090b]"
     >
-      <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* Left Content */}
-          <div className="max-w-xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700">
-              <GraduationCap size={17} />
-              Platform Pembelajaran Digital
-            </div>
+      {/* BACKGROUND GLOW */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[450px] w-[700px] -translate-x-1/2 rounded-full bg-[#8ECAE6]/[0.025] blur-[130px]" />
 
-            <h1 className="text-4xl leading-tight font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              Belajar Lebih Mudah,
-              <span className="text-blue-600"> Berkembang Lebih Jauh.</span>
+      {/* SPACE DECORATION */}
+      {/* SPACE DECORATION */}
+      <div className="space-decoration pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+        <div className="moon" />
+
+        <span className="star star-1" />
+        <span className="star star-2" />
+        <span className="star star-3" />
+        <span className="star star-4" />
+        <span className="star star-5" />
+        <span className="star star-6" />
+        <span className="star star-7" />
+        <span className="star star-8" />
+        <span className="star star-9" />
+        <span className="star star-10" />
+
+        <span className="shooting-star shooting-star-1" />
+        <span className="shooting-star shooting-star-2" />
+      </div>
+
+      <Container className="relative">
+        <div className="grid w-full items-center gap-10 lg:grid-cols-2">
+          {/* HERO TEXT */}
+          <div className="flex flex-col items-start">
+            <h1
+              aria-label="Platform media pembelajaran tata surya"
+              className="font-['Poppins',sans-serif] text-[clamp(1.6rem,3.6vw,2.9rem)] font-semibold leading-[1.4] tracking-tight text-[#D1D5DB]"
+            >
+              {/* BARIS 1 */}
+              <span className="block h-[1.4em] whitespace-nowrap">
+                {firstLine}
+                {displayText.length <= 14 && (
+                  <span className="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.05em] animate-pulse bg-[#8ECAE6]" />
+                )}
+              </span>
+
+              {/* BARIS 2 */}
+              <span className="block h-[1.4em] whitespace-nowrap text-[#8ECAE6]">
+                {secondLine}
+                {displayText.length > 14 && displayText.length <= 27 && (
+                  <span className="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.05em] animate-pulse bg-[#8ECAE6]" />
+                )}
+              </span>
+
+              {/* BARIS 3 */}
+              <span className="block h-[1.4em] whitespace-nowrap">
+                {thirdLine}
+                {displayText.length > 27 && (
+                  <span className="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.05em] animate-pulse bg-[#8ECAE6]" />
+                )}
+              </span>
             </h1>
-
-            <p className="mt-6 max-w-lg text-base leading-8 text-slate-500 sm:text-lg">
-              Jelajahi pengalaman belajar yang lebih menarik melalui materi
-              interaktif, video pembelajaran, dan aktivitas edukatif dalam satu
-              platform.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link
-                href="/register"
-                className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 font-semibold text-white transition hover:bg-blue-700"
-              >
-                Mulai Belajar
-                <ArrowRight size={18} />
-              </Link>
-
-              <Link
-                href="#about"
-                className="rounded-xl border border-slate-200 px-6 py-3.5 font-semibold text-slate-700 transition hover:bg-slate-50"
-              >
-                Pelajari Lebih Lanjut
-              </Link>
-            </div>
-
-            <div className="mt-10 flex items-center gap-3 text-sm text-slate-500">
-              <BookOpen size={19} className="text-blue-600" />
-              Belajar interaktif, kapan saja dan di mana saja.
-            </div>
           </div>
 
-          {/* Right Illustration */}
-          <div className="relative mx-auto w-full max-w-md">
-            <div className="absolute -top-8 -right-8 h-40 w-40 rounded-full bg-blue-100 blur-3xl" />
-            <div className="absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-indigo-100 blur-3xl" />
+          {/* SOLAR SYSTEM ANIMATION */}
+          <div className="solar-system">
+            <div className="sun">
+              <div className="sun-glow" />
+            </div>
 
-            <div className="relative rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-xl shadow-slate-200/50 sm:p-10">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-slate-500">
-                    Welcome to
-                  </p>
-                  <h2 className="mt-1 text-2xl font-bold text-slate-900">
-                    EduQuest
-                  </h2>
-                </div>
+            <div className="orbit orbit-one">
+              <div className="planet mercury" />
+            </div>
 
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white">
-                  <GraduationCap size={26} />
-                </div>
+            <div className="orbit orbit-two">
+              <div className="planet venus" />
+            </div>
+
+            <div className="orbit orbit-three">
+              <div className="planet earth">
+                <span />
               </div>
+            </div>
 
-              <div className="mt-10 rounded-2xl bg-blue-600 p-6 text-white">
-                <p className="text-sm text-blue-100">Your Learning Journey</p>
-                <h3 className="mt-2 text-2xl font-bold">
-                  Learn. Explore. Grow.
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-blue-100">
-                  Temukan cara baru untuk memahami setiap materi dan kembangkan
-                  kemampuanmu.
-                </p>
+            <div className="orbit orbit-four">
+              <div className="planet mars" />
+            </div>
+
+            <div className="orbit orbit-five">
+              <div className="planet jupiter" />
+            </div>
+
+            <div className="orbit orbit-six">
+              <div className="planet saturn">
+                <span />
               </div>
+            </div>
 
-              <div className="mt-5 grid grid-cols-2 gap-4">
-                <div className="rounded-2xl bg-white p-4">
-                  <BookOpen className="text-blue-600" size={24} />
-                  <p className="mt-3 font-semibold text-slate-800">Materi</p>
-                  <p className="mt-1 text-xs text-slate-500">
-                    Belajar lebih terarah
-                  </p>
-                </div>
+            <div className="orbit orbit-seven">
+              <div className="planet uranus" />
+            </div>
 
-                <div className="rounded-2xl bg-white p-4">
-                  <GraduationCap className="text-blue-600" size={24} />
-                  <p className="mt-3 font-semibold text-slate-800">Evaluasi</p>
-                  <p className="mt-1 text-xs text-slate-500">
-                    Ukur hasil belajarmu
-                  </p>
-                </div>
-              </div>
+            <div className="orbit orbit-eight">
+              <div className="planet neptune" />
             </div>
           </div>
         </div>

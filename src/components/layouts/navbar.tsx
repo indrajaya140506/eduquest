@@ -1,16 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
-import {
-  GraduationCap,
-  UserRound,
-  ChevronDown,
-  Menu,
-  X,
-  LogIn,
-  UserPlus,
-} from "lucide-react";
+import { UserRound, ChevronDown, Menu, X, LogIn, UserPlus } from "lucide-react";
 
 import Container from "@/components/layouts/container";
 
@@ -25,17 +18,18 @@ export default function Navbar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/20 bg-white/60 backdrop-blur-xl">
+    <header className="fixed top-0 z-50 w-full border-b border-white/[0.08] bg-[#09090b]/35 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur-2xl backdrop-saturate-150">
       <Container className="flex h-20 items-center justify-between">
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-950 text-white">
-            <GraduationCap size={23} />
-          </div>
-
-          <span className="text-xl font-bold tracking-tight text-blue-950">
-            Edu<span className="text-blue-600">Quest.</span>
-          </span>
+        <Link href="/" className="flex shrink-0 items-center">
+          <Image
+            src="/images/edu.png"
+            alt="EduQuest Logo"
+            width={350}
+            height={125}
+            priority
+            className="h-[100px] w-auto max-w-none object-contain"
+          />
         </Link>
 
         {/* DESKTOP NAVIGATION */}
@@ -44,7 +38,7 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-700"
+              className="font-sans text-base font-medium text-white transition-colors duration-200 hover:text-[#8ECAE6]"
             >
               {link.label}
             </Link>
@@ -55,34 +49,38 @@ export default function Navbar() {
         <div className="relative hidden md:block">
           <button
             onClick={() => setIsProfileOpen(!isProfileOpen)}
-            className="flex items-center gap-2 rounded-xl border border-slate-200/80 bg-white/50 px-3 py-2.5 text-blue-950 transition hover:bg-white"
+            className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/[0.05] px-3 py-2.5 text-white transition-colors duration-200 hover:border-[#8ECAE6]/50 hover:text-[#8ECAE6] hover:bg-[#8ECAE6]/10"
             aria-label="Menu akun"
             aria-expanded={isProfileOpen}
           >
-            <UserRound size={20} />
+            <UserRound size={22} />
+
             <ChevronDown
-              size={15}
-              className={`transition-transform ${
+              size={16}
+              className={`transition-transform duration-200 ${
                 isProfileOpen ? "rotate-180" : ""
               }`}
             />
           </button>
 
+          {/* DROPDOWN MENU */}
           {isProfileOpen && (
-            <div className="absolute right-0 mt-3 w-48 overflow-hidden rounded-xl border border-slate-100 bg-white p-2 shadow-xl shadow-slate-200/50">
+            <div className="absolute right-0 mt-3 w-48 overflow-hidden rounded-xl border border-white/10 bg-[#172554]/95 p-2 shadow-xl shadow-black/20 backdrop-blur-xl">
+              {/* LOGIN */}
               <Link
                 href="/login"
                 onClick={() => setIsProfileOpen(false)}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-blue-50 hover:text-blue-700"
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-normal text-white/80 transition-colors duration-200 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6]"
               >
                 <LogIn size={17} />
                 Login
               </Link>
 
+              {/* REGISTER */}
               <Link
                 href="/register"
                 onClick={() => setIsProfileOpen(false)}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-blue-50 hover:text-blue-700"
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-normal text-white/80 transition-colors duration-200 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6]"
               >
                 <UserPlus size={17} />
                 Register
@@ -94,17 +92,17 @@ export default function Navbar() {
         {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-xl text-blue-950 transition hover:bg-white/70 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-xl text-white transition-colors duration-200 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6] md:hidden"
           aria-label={isOpen ? "Tutup menu" : "Buka menu"}
           aria-expanded={isOpen}
         >
-          {isOpen ? <X size={23} /> : <Menu size={23} />}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </Container>
 
       {/* MOBILE NAVIGATION */}
       {isOpen && (
-        <div className="border-t border-slate-100/80 bg-white/95 py-5 shadow-lg backdrop-blur-xl md:hidden">
+        <div className="border-t border-white/10 bg-[#09090b]/90 py-5 shadow-lg backdrop-blur-2xl md:hidden">
           <Container>
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
@@ -112,27 +110,29 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-blue-50 hover:text-blue-700"
+                  className="rounded-lg px-4 py-3 font-sans text-base font-medium text-white transition-colors duration-200 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6]"
                 >
                   {link.label}
                 </Link>
               ))}
 
-              <div className="my-2 border-t border-slate-100" />
+              <div className="my-2 border-t border-white/10" />
 
+              {/* LOGIN */}
               <Link
                 href="/login"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50"
+                className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-normal text-white/80 transition-colors duration-200 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6]"
               >
                 <LogIn size={18} />
                 Login
               </Link>
 
+              {/* REGISTER */}
               <Link
                 href="/register"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50"
+                className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-normal text-white/80 transition-colors duration-200 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6]"
               >
                 <UserPlus size={18} />
                 Register

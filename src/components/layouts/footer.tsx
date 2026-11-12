@@ -83,7 +83,7 @@ export default function Footer() {
         {/* BOTTOM FOOTER */}
         <div className="flex flex-col items-center justify-between gap-5 pt-8 text-center sm:flex-row sm:text-left">
           <p className="text-xs text-blue-100/60">
-            © {new Date().getFullYear()} EduQuest. All rights reserved.
+            © 2026 EduQuest. All rights reserved.
           </p>
 
           <p className="text-xs text-blue-100/60">
