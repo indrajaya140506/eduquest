@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   LayoutDashboard,
-  Orbit,
+  Target,
   BookOpen,
   ClipboardCheck,
   ChartNoAxesColumnIncreasing,
@@ -15,7 +15,11 @@ type SidebarProps = {
 
 const menus = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { label: "Tata Surya", href: "/dashboard/tata-surya", icon: Orbit },
+  {
+    label: "Tujuan Pembelajaran",
+    href: "/dashboard/tujuan-pembelajaran",
+    icon: Target,
+  },
   { label: "Materi Belajar", href: "/dashboard/materi", icon: BookOpen },
   { label: "Kuis", href: "/dashboard/kuis", icon: ClipboardCheck },
   {
@@ -53,18 +57,14 @@ export default function Sidebar({ isOpen }: SidebarProps) {
       </p>
 
       <nav className="space-y-2 font-sans">
-        {menus.map((menu, index) => {
+        {menus.map((menu) => {
           const Icon = menu.icon;
 
           return (
             <Link
               key={menu.label}
               href={menu.href}
-              className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition ${
-                index === 0
-                  ? "bg-[#8ECAE6]/10 text-[#8ECAE6]"
-                  : "text-white hover:bg-white/5 hover:text-[#8ECAE6]"
-              }`}
+              className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white transition hover:bg-white/5 hover:text-[#8ECAE6]"
             >
               <Icon size={19} />
               {menu.label}

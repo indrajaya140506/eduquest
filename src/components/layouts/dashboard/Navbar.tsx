@@ -23,6 +23,7 @@ export default function Navbar({ onMenuClick, sidebarOpen }: NavbarProps) {
     "/dashboard/kuis": "Kuis",
     "/dashboard/progres": "Progres Belajar",
     "/dashboard/profil": "Profil",
+    "/dashboard/tujuan-pembelajaran": "Tujuan Pembelajaran",
   };
 
   const pageTitle = pageTitles[pathname] || "Dashboard";
