@@ -11,7 +11,7 @@ export default function ResetPasswordPage() {
 
   return (
     <AuthLayout title="Buat Password Baru">
-      <form className="space-y-5">
+      <form className="space-y-5 font-serif">
         <p className="text-center text-sm leading-relaxed text-slate-400">
           Silakan buat password baru untuk akun EduQuest Anda. Pastikan password
           mudah diingat dan tetap aman.

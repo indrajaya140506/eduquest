@@ -2,15 +2,53 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
 import AuthLayout from "@/components/auth/AuthLayout";
+import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
+  const router = useRouter();
+  const supabase = createClient();
+
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setError("");
+
+    const formData = new FormData(event.currentTarget);
+
+    const email = String(formData.get("email") || "").trim();
+    const password = String(formData.get("password") || "");
+
+    setLoading(true);
+
+    try {
+      const { error: loginError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (loginError) {
+        setError(loginError.message);
+        return;
+      }
+
+      router.push("/dashboard");
+      router.refresh();
+    } catch {
+      setError("Terjadi kesalahan. Silakan coba kembali.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <AuthLayout title="Login" showPlanetPanel>
-      <form className="space-y-5 font-serif">
+      <form onSubmit={handleLogin} className="space-y-5 font-serif">
         {/* EMAIL */}
         <div className="space-y-2">
           <label className="text-sm font-medium text-slate-300">Email</label>
@@ -64,12 +102,20 @@ export default function LoginPage() {
           </Link>
         </div>
 
+        {/* ERROR MESSAGE */}
+        {error && (
+          <p className="rounded-lg border border-red-400/20 bg-red-400/10 px-3 py-2 text-sm text-red-300">
+            {error}
+          </p>
+        )}
+
         {/* LOGIN BUTTON */}
         <button
           type="submit"
-          className="h-12 w-full rounded-lg bg-[#8ECAE6] text-sm font-semibold text-[#09090b] transition-colors hover:bg-[#a8d9ed]"
+          disabled={loading}
+          className="h-12 w-full rounded-lg bg-[#8ECAE6] text-sm font-semibold text-[#09090b] transition-colors hover:bg-[#a8d9ed] disabled:cursor-not-allowed disabled:opacity-60"
         >
-          Login
+          {loading ? "Memproses..." : "Login"}
         </button>
 
         {/* REGISTER LINK */}

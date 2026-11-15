@@ -6,7 +6,7 @@ import AuthLayout from "@/components/auth/AuthLayout";
 export default function ForgotPasswordPage() {
   return (
     <AuthLayout title="Lupa Password">
-      <form className="space-y-5">
+      <form className="space-y-5 font-serif">
         <p className="text-center text-sm leading-relaxed text-slate-400">
           Masukkan alamat email yang terdaftar. Kami akan mengirimkan tautan
           untuk mengatur ulang password Anda.
