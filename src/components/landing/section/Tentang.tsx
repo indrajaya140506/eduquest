@@ -101,7 +101,10 @@ export default function Tentang() {
   ];
 
   return (
-    <section id="about" className="relative overflow-hidden bg-[#09090b] py-24">
+    <section
+      id="about"
+      className="relative scroll-mt-20 overflow-hidden bg-[#09090b] py-24"
+    >
       {/* ANIMASI BINTANG */}
       <div className="pointer-events-none absolute inset-0">
         {Array.from({ length: 12 }).map((_, index) => (
@@ -122,7 +125,7 @@ export default function Tentang() {
         <div className="w-full">
           {/* JUDUL DAN GARIS PEMISAH */}
           <div className="flex items-center gap-6">
-            <h2 className="shrink-0 font-['Poppins',sans-serif] text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="shrink-0 font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl">
               Tentang
             </h2>
 
@@ -132,7 +135,7 @@ export default function Tentang() {
           {/* PENJELASAN ANIMASI KETIK */}
           <p
             aria-label={description}
-            className="mt-8 min-h-[160px] max-w-4xl text-base leading-8 text-slate-400"
+            className="mt-8 min-h-[160px] max-w-4xl font-serif text-base leading-8 text-slate-400"
           >
             {displayText}
             <span className="ml-1 inline-block h-4 w-[2px] translate-y-[2px] animate-pulse bg-[#8ECAE6]" />

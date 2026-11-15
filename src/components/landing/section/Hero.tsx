@@ -71,7 +71,7 @@ export default function Hero() {
           <div className="flex flex-col items-start">
             <h1
               aria-label="Platform media pembelajaran tata surya"
-              className="font-['Poppins',sans-serif] text-[clamp(1.6rem,3.6vw,2.9rem)] font-semibold leading-[1.4] tracking-tight text-[#D1D5DB]"
+              className="font-serif text-[clamp(1.6rem,3.6vw,2.9rem)] font-semibold leading-[1.4] tracking-tight text-[#D1D5DB]"
             >
               {/* BARIS 1 */}
               <span className="block h-[1.4em] whitespace-nowrap">

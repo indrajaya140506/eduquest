@@ -5,7 +5,7 @@ export default function Panduan() {
   return (
     <section
       id="how-it-works"
-      className="relative overflow-hidden bg-[#09090b] py-24"
+      className="relative scroll-mt-20 overflow-hidden bg-[#09090b] py-24"
     >
       {/* ANIMASI BINTANG */}
       <div className="pointer-events-none absolute inset-0">
@@ -27,7 +27,7 @@ export default function Panduan() {
         <div className="w-full">
           {/* JUDUL DAN GARIS PEMISAH */}
           <div className="flex items-center gap-6">
-            <h2 className="shrink-0 font-['Poppins',sans-serif] text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="shrink-0 font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl">
               Panduan
             </h2>
 

@@ -11,26 +11,23 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[#0B1220] text-white">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#0B1220] font-serif text-white">
       {/* DEKORASI BACKGROUND */}
       <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-[#8ECAE6]/[0.04] blur-[100px]" />
 
-      <Container className="relative z-10 pt-14 pb-8">
+      <Container className="relative z-10 pt-10 pb-6">
         {/* MAIN FOOTER */}
-        <div className="grid grid-cols-1 gap-12 border-b border-white/10 pb-12 md:grid-cols-3 md:gap-10">
+        <div className="grid grid-cols-1 gap-7 border-b border-white/10 pb-8 md:grid-cols-3 md:gap-10">
           {/* BRAND */}
           <div className="flex flex-col">
-            <div className="flex h-12 items-center">
-              <Link
-                href="/"
-                className="font-['Poppins',sans-serif] text-3xl font-bold tracking-tight"
-              >
+            <div className="flex items-center">
+              <Link href="/" className="text-2xl font-bold tracking-tight">
                 <span className="text-white">Edu</span>
                 <span className="text-[#8ECAE6]">Quest.</span>
               </Link>
             </div>
 
-            <p className="mt-5 max-w-sm text-sm leading-7 text-slate-400">
+            <p className="mt-3 max-w-sm text-sm leading-6 text-slate-400">
               Jelajahi keajaiban Tata Surya bersama EduQuest. Belajar mengenal
               planet dan benda langit melalui pengalaman pembelajaran yang
               interaktif dan menyenangkan.
@@ -38,19 +35,19 @@ export default function Footer() {
           </div>
 
           {/* NAVIGATION */}
-          <div className="md:pl-20">
-            <div className="flex h-12 items-center">
-              <h3 className="text-base font-semibold tracking-wide text-white">
+          <div className="md:pl-16">
+            <div className="flex items-center">
+              <h3 className="text-sm font-normal tracking-wide text-white">
                 NAVIGASI
               </h3>
             </div>
 
-            <p className="mt-5 text-sm leading-7 text-slate-400">
+            <p className="mt-3 text-sm leading-6 text-slate-400">
               Temukan berbagai bagian dan informasi yang tersedia di platform
               EduQuest.
             </p>
 
-            <ul className="mt-5 space-y-4">
+            <ul className="mt-3 space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -65,14 +62,14 @@ export default function Footer() {
           </div>
 
           {/* DEVELOPER */}
-          <div className="md:pl-10">
-            <div className="flex h-12 items-center">
-              <h3 className="text-base font-semibold tracking-wide text-white">
+          <div className="md:pl-6">
+            <div className="flex items-center">
+              <h3 className="text-sm font-normal tracking-wide text-white">
                 PENGEMBANG
               </h3>
             </div>
 
-            <p className="mt-5 text-sm leading-7 text-slate-400">
+            <p className="mt-3 text-sm leading-6 text-slate-400">
               EduQuest dikembangkan sebagai media pembelajaran digital untuk
               membantu pengguna mengenal dan memahami Tata Surya.
             </p>
@@ -81,19 +78,19 @@ export default function Footer() {
               href="https://indrajaya.my.id"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#8ECAE6] transition duration-200 hover:text-white"
+              className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#8ECAE6] transition duration-200 hover:text-white"
             >
-              <Globe size={17} />
+              <Globe size={16} />
               indrajaya.my.id
             </Link>
           </div>
         </div>
 
         {/* BOTTOM FOOTER */}
-        <div className="flex flex-col items-center justify-between gap-5 pt-7 text-center sm:flex-row sm:text-left">
+        <div className="flex flex-col items-center justify-between gap-4 pt-5 text-center sm:flex-row sm:text-left">
           <p className="text-xs text-slate-500">
             © 2026{" "}
-            <span className="font-['Poppins',sans-serif] font-semibold">
+            <span className="font-semibold">
               <span className="text-white">Edu</span>
               <span className="text-[#8ECAE6]">Quest.</span>
             </span>{" "}
@@ -103,9 +100,9 @@ export default function Footer() {
           <Link
             href="#home"
             aria-label="Kembali ke atas"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-slate-400 transition duration-200 hover:border-[#8ECAE6]/40 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6]"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400 transition duration-200 hover:border-[#8ECAE6]/40 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6]"
           >
-            <ArrowUp size={18} />
+            <ArrowUp size={17} />
           </Link>
         </div>
       </Container>

@@ -21,14 +21,14 @@ export default function Navbar() {
     <header className="fixed top-0 z-50 w-full border-b border-white/[0.08] bg-[#09090b]/35 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur-2xl backdrop-saturate-150">
       <Container className="flex h-20 items-center justify-between">
         {/* LOGO */}
-        <Link href="/" className="flex shrink-0 items-center">
+        <Link href="/" className="-ml-10 flex shrink-0 items-center">
           <Image
-            src="/images/edu.png"
+            src="/images/eduq.png"
             alt="EduQuest Logo"
             width={350}
             height={125}
             priority
-            className="h-[100px] w-auto max-w-none object-contain"
+            className="h-[95px] w-auto max-w-none object-contain"
           />
         </Link>
 
@@ -38,7 +38,7 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="font-sans text-base font-medium text-white transition-colors duration-200 hover:text-[#8ECAE6]"
+              className="font-serif text-sm font-medium text-white transition-colors duration-200 hover:text-[#8ECAE6]"
             >
               {link.label}
             </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
 
           {/* DROPDOWN MENU */}
           {isProfileOpen && (
-            <div className="absolute right-0 mt-3 w-48 overflow-hidden rounded-xl border border-white/10 bg-[#172554]/95 p-2 shadow-xl shadow-black/20 backdrop-blur-xl">
+            <div className="absolute right-0 mt-3 w-48 overflow-hidden rounded-xl border border-[#8ECAE6]/25 bg-[#8ECAE6]/15 p-2 shadow-xl shadow-black/20 backdrop-blur-2xl">
               {/* LOGIN */}
               <Link
                 href="/login"
@@ -110,7 +110,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="rounded-lg px-4 py-3 font-sans text-base font-medium text-white transition-colors duration-200 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6]"
+                  className="rounded-lg px-4 py-3 font-serif text-base font-medium text-white transition-colors duration-200 hover:bg-[#8ECAE6]/10 hover:text-[#8ECAE6]"
                 >
                   {link.label}
                 </Link>
