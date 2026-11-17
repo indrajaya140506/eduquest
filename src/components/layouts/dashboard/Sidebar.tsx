@@ -33,30 +33,42 @@ const menus = [
 export default function Sidebar({ isOpen }: SidebarProps) {
   return (
     <aside
-      className={`fixed top-0 bottom-0 left-0 z-50 w-64 border-r border-white/10 bg-[#09090b] px-5 pt-1 pb-6 font-sans text-white transition-transform duration-300 ${
+      className={`fixed top-0 bottom-0 left-0 z-50 w-64 border-r border-white/10 bg-[#101F38] px-5 pt-1 pb-6 font-[var(--font-poppins)] text-white transition-transform duration-300 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
       {/* LOGO */}
-      <div className="mb-7 flex items-center justify-center">
-        <Link href="/dashboard" aria-label="EduQuest Dashboard">
-          <Image
-            src="/images/eduq.png"
-            alt="EduQuest Logo"
-            width={220}
-            height={90}
-            priority
-            className="h-auto w-48 object-contain"
-          />
-        </Link>
+      <div className="mb-4">
+        <div className="flex justify-start px-2">
+          <Link href="/dashboard" aria-label="EduQuest Dashboard">
+            <Image
+              src="/images/eduq.png"
+              alt="EduQuest Logo"
+              width={220}
+              height={90}
+              priority
+              className="h-auto w-48 -translate-x-2 object-contain"
+            />
+          </Link>
+        </div>
+
+        <div className="mt-2 px-2 text-left font-[var(--font-poppins)]">
+          <p className="text-lg font-normal leading-snug text-white">
+            Dashboard,
+          </p>
+          <p className="text-lg font-normal leading-snug text-white">
+            Platform Media
+          </p>
+          <p className="text-lg font-normal leading-snug text-white">
+            Pembelajaran
+          </p>
+          <p className="text-lg font-normal leading-snug text-white">
+            Tata Surya
+          </p>
+        </div>
       </div>
 
-      {/* MENU */}
-      <p className="mb-5 font-sans text-xs font-semibold tracking-widest text-white/50">
-        MENU UTAMA
-      </p>
-
-      <nav className="space-y-2 font-sans">
+      <nav className="space-y-1">
         {menus.map((menu) => {
           const Icon = menu.icon;
 
@@ -64,9 +76,13 @@ export default function Sidebar({ isOpen }: SidebarProps) {
             <Link
               key={menu.label}
               href={menu.href}
-              className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white transition hover:bg-white/5 hover:text-[#8ECAE6]"
+              className="flex items-center gap-3 rounded-lg px-2 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-gradient-to-r hover:from-[#8ECAE6]/20 hover:to-transparent hover:text-[#8ECAE6]"
             >
-              <Icon size={19} />
+              <Icon
+                size={20}
+                strokeWidth={2.2}
+                className="text-white drop-shadow-[0_0_3px_rgba(142,202,230,0.35)]"
+              />
               {menu.label}
             </Link>
           );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import CursorEffect from "@/components/layouts/CursorEffect";
 
@@ -13,6 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "EduQuest | Platform Media Pembelajaran Tata Surya",
   description:
@@ -23,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col">
         <CursorEffect />
