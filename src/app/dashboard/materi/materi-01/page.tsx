@@ -87,7 +87,7 @@ export default function Materi01Page() {
           <section>
             <div className="mb-4">
               <h2 className="text-xl font-semibold text-slate-900">
-                Infografis Pembelajaran
+                Memahami Sejarah Tata Surya
               </h2>
 
               <p className="mt-1 text-sm text-slate-500">
