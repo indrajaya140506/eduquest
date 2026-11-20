@@ -54,7 +54,7 @@ export default function Materi03Page() {
                 className="relative aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-sm"
               >
                 <Image
-                  src="/images/materi/materi-03.jpg"
+                  src="/images/materi/tata-surya.jpg"
                   alt="Infografis Mengenal Delapan Planet"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -96,7 +96,7 @@ export default function Materi03Page() {
           >
             <div className="relative h-[85vh] w-full max-w-6xl">
               <Image
-                src="/images/materi/materi-03.jpg"
+                src="/images/materi/tata-surya.jpg"
                 alt="Infografis Mengenal Delapan Planet"
                 fill
                 sizes="100vw"
