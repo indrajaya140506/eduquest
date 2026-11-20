@@ -145,9 +145,10 @@ export default function PlanetGallery3D() {
 
         <Suspense
           fallback={
-            <Html center>
-              <p className="text-sm text-slate-300">Memuat Tata Surya...</p>
-            </Html>
+            <mesh>
+              <sphereGeometry args={[0.6, 24, 24]} />
+              <meshStandardMaterial color="#8ECAE6" wireframe />
+            </mesh>
           }
         >
           <PlanetScene />
