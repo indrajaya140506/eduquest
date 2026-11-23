@@ -260,12 +260,12 @@ export default function MateriPage() {
     <main className="min-h-screen bg-white py-8 sm:py-10">
       <DashboardContainer>
         {/* HEADER */}
-        <div className="mb-10">
-          <h2 className="mt-2 text-2xl font-semibold text-slate-900">
+        <div className="mb-10 rounded-xl border border-[#101F38] bg-[#101F38] p-6 sm:p-8">
+          <h2 className="mt-2 text-2xl font-semibold text-white">
             Materi Pembelajaran
           </h2>
 
-          <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-500">
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-white/75">
             Jelajahi berbagai materi untuk memahami sejarah, karakteristik,
             serta fenomena yang terjadi di Tata Surya.
           </p>

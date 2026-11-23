@@ -1,5 +1,4 @@
 import DashboardContainer from "@/components/layouts/dashboard/DashboardContainer";
-import PlanetGalleryLoader from "@/components/layouts/dashboard/PlanetGalleryLoader";
 
 const objectives = [
   "Memahami sejarah dan teori terbentuknya Tata Surya.",
@@ -8,7 +7,7 @@ const objectives = [
   "Mengetahui urutan serta karakteristik delapan planet.",
   "Memahami perbedaan planet dalam dan planet luar.",
   "Mempelajari rotasi dan revolusi serta pengaruhnya terhadap kehidupan.",
-  "Mengenal fenomena alam seperti gerhana Matahari dan gerhana Bulan.",
+  "Mempelajari peran bumi dan kehidupan.",
   "Memahami peran Tata Surya dalam kehidupan di Bumi.",
 ];
 
@@ -16,56 +15,87 @@ export default function TujuanPembelajaranPage() {
   return (
     <DashboardContainer>
       <div className="space-y-6 pb-8">
-        {/* Header */}
-        <section>
-          <h2 className="mt-2 text-2xl font-semibold text-slate-900">
+        {/* HEADER */}
+        {/* HEADER */}
+        <section className="mb-6 rounded-xl border border-[#101F38] bg-[#101F38] p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold text-white">
             Tujuan Pembelajaran
           </h2>
 
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-white/75">
             Pelajari susunan Tata Surya, karakteristik planet, dan
             pergerakannya.
           </p>
         </section>
 
-        {/* Planet 3D Section */}
-        <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 md:p-6">
-          <div className="mb-6 text-center">
-            <h3 className="mt-2 text-xl font-semibold text-slate-900">
-              Mengenal Planet
-            </h3>
+        {/* PLANET 3D & LEARNING OBJECTIVES */}
+        <section className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2">
+          {/* LEFT - PLANET 3D */}
+          <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 lg:min-h-[620px]">
+            {/* HEADER */}
+            <div className="mb-6">
+              <h3 className="text-xl font-semibold text-slate-900">
+                Mengenal Tata Surya
+              </h3>
+
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                Jelajahi objek Tata Surya melalui visualisasi tiga dimensi yang
+                interaktif.
+              </p>
+            </div>
+
+            {/* 3D OBJECT */}
+            <div className="flex flex-1 items-center justify-center">
+              <div className="w-full overflow-hidden rounded-xl border border-slate-200 bg-[#101F38]">
+                <iframe
+                  title="Model 3D Tata Surya"
+                  src="https://sketchfab.com/models/e8df134d9a974fb99b14f75eab705117/embed?autostart=0&ui_theme=dark"
+                  className="aspect-square w-full"
+                  allow="autoplay; fullscreen; xr-spatial-tracking"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+
+            {/* FOOTER */}
+            <p className="mt-5 text-center text-xs leading-5 text-slate-400">
+              Putar model untuk mengamati susunan dan karakteristik planet dalam
+              Tata Surya.
+            </p>
           </div>
 
-          <PlanetGalleryLoader />
+          {/* RIGHT - LEARNING OBJECTIVES */}
+          <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 lg:min-h-[620px]">
+            {/* HEADER */}
+            <div>
+              <h3 className="text-xl font-semibold text-slate-900">
+                Apa yang Akan Kamu Pelajari?
+              </h3>
 
-          <p className="mt-4 text-center text-xs text-slate-400">
-            Urutan planet berdasarkan jaraknya dari Matahari
-          </p>
-        </section>
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                Setelah mengikuti pembelajaran EduQuest, kamu diharapkan mampu:
+              </p>
+            </div>
 
-        {/* Learning Objectives */}
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
-          <h3 className="mt-2 text-xl font-semibold text-slate-900">
-            Apa yang Akan Kamu Pelajari?
-          </h3>
+            {/* OBJECTIVES LIST */}
+            <div className="mt-6 flex flex-1 flex-col justify-between gap-3">
+              {objectives.map((objective, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-3 rounded-lg border border-slate-100 p-3 transition-colors hover:bg-slate-50"
+                >
+                  {/* NUMBER */}
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#101F38] text-xs font-semibold text-white">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-          <p className="mt-2 text-sm leading-6 text-slate-500">
-            Setelah mengikuti pembelajaran EduQuest, kamu diharapkan mampu:
-          </p>
-
-          <div className="mt-6 space-y-4">
-            {objectives.map((objective, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-4 border-b border-slate-100 pb-4 last:border-0 last:pb-0"
-              >
-                <span className="text-sm font-semibold text-[#397B9A]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <p className="text-sm leading-6 text-slate-600">{objective}</p>
-              </div>
-            ))}
+                  {/* TEXT */}
+                  <p className="text-sm leading-6 text-slate-600">
+                    {objective}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </div>

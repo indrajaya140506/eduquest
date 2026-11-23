@@ -21,7 +21,11 @@ const menus = [
     icon: Target,
   },
   { label: "Materi Belajar", href: "/dashboard/materi", icon: BookOpen },
-  { label: "Kuis", href: "/dashboard/kuis", icon: ClipboardCheck },
+  {
+    label: "Uji Pemahaman",
+    href: "/dashboard/uji_pemahaman",
+    icon: ClipboardCheck,
+  },
   {
     label: "Progres Belajar",
     href: "/dashboard/progres",
