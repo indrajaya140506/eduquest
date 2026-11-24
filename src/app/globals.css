@@ -948,3 +948,81 @@
     animation: none !important;
   }
 }
+
+@keyframes asteroid-fall {
+  from {
+    transform: translateY(-60px) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(480px) rotate(360deg);
+  }
+}
+
+@keyframes ship-float {
+  0%,
+  100% {
+    margin-bottom: 0;
+  }
+
+  50% {
+    margin-bottom: 8px;
+  }
+}
+
+@keyframes ship-hit {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+    filter: brightness(1);
+  }
+
+  25% {
+    transform: translateX(-50%) rotate(-15deg);
+    filter: brightness(2);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(15deg);
+    filter: brightness(1.5);
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+    filter: brightness(1);
+  }
+}
+
+@keyframes impact {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+.animate-asteroid-fall {
+  animation-name: asteroid-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.animate-ship-float {
+  animation: ship-float 1.8s ease-in-out infinite;
+}
+
+.animate-ship-hit {
+  animation: ship-hit 0.45s ease-in-out;
+}
+
+.animate-impact {
+  animation: impact 0.65s ease-out forwards;
+}

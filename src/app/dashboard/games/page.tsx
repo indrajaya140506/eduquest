@@ -16,7 +16,7 @@ const games = [
     title: "Asteroid Quiz",
     description: "Jawab pertanyaan dengan cepat dan hindari asteroid.",
     href: "/dashboard/games/game-2",
-    available: false,
+    available: true,
     icon: "☄️",
   },
   {
