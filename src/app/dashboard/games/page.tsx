@@ -24,7 +24,7 @@ const games = [
     title: "Space Mission",
     description: "Selesaikan tantangan untuk menuntaskan misi luar angkasa.",
     href: "/dashboard/games/game-3",
-    available: false,
+    available: true,
     icon: "🚀",
   },
 ];

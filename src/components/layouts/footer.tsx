@@ -71,7 +71,8 @@ export default function Footer() {
 
             <p className="mt-3 text-sm leading-6 text-slate-400">
               EduQuest dikembangkan sebagai media pembelajaran digital untuk
-              membantu pengguna mengenal dan memahami Tata Surya.
+              membantu pengguna mengenal dan memahami Tata Surya. Eduquest
+              dikembangkan oleh :
             </p>
 
             <Link
