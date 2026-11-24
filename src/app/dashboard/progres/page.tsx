@@ -278,10 +278,6 @@ export default async function ProgresBelajarPage() {
       <div className="space-y-6 pb-10 pt-4">
         {/* HEADER */}
         <section>
-          <p className="text-sm font-medium text-blue-600">
-            Dashboard Pembelajaran
-          </p>
-
           <h1 className="mt-1 text-2xl font-bold tracking-tight text-slate-800 sm:text-3xl">
             Progres Belajar
           </h1>
@@ -344,8 +340,6 @@ export default async function ProgresBelajarPage() {
         <section className="space-y-4">
           <div>
             <div className="flex items-center gap-2">
-              <ActivityIcon className="h-5 w-5 text-blue-600" />
-
               <h2 className="text-lg font-bold text-slate-800 sm:text-xl">
                 Riwayat Aktivitas
               </h2>

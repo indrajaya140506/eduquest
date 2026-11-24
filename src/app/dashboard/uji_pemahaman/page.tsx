@@ -86,13 +86,8 @@ export default function UjiPemahamanPage() {
           <div className="relative z-10 grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr]">
             {/* HERO TEXT */}
             <div className="max-w-2xl">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-cyan-200">
-                <Sparkles size={14} />
-                LEARNING ADVENTURE
-              </div>
-
               <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Space Mission
+                Uji Pemahaman
               </h1>
 
               <p className="mt-4 max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
