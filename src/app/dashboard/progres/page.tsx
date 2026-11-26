@@ -11,7 +11,6 @@ import {
   Clock,
   History,
   ChevronDown,
-  Activity as ActivityIcon,
 } from "lucide-react";
 
 export const instant = false;
@@ -55,36 +54,36 @@ const ACTIVITY_CATEGORIES = [
     title: "Diagnostik",
     description: "Riwayat tes diagnostik",
     icon: Brain,
-    color: "text-blue-600",
-    bg: "bg-blue-50",
-    border: "border-blue-100",
+    color: "text-[#527BA4]",
+    bg: "bg-[#F0F5FA]",
+    border: "border-[#E2EAF2]",
   },
   {
     key: "formatif",
     title: "Formatif",
     description: "Riwayat latihan formatif",
     icon: BookOpen,
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
-    border: "border-emerald-100",
+    color: "text-[#478C75]",
+    bg: "bg-[#EFF7F3]",
+    border: "border-[#DFEEE6]",
   },
   {
     key: "game",
     title: "Game",
     description: "Riwayat permainan",
     icon: Gamepad2,
-    color: "text-orange-600",
-    bg: "bg-orange-50",
-    border: "border-orange-100",
+    color: "text-[#B18A49]",
+    bg: "bg-[#FBF6EB]",
+    border: "border-[#F0E7D5]",
   },
   {
     key: "sumatif",
     title: "Sumatif",
     description: "Riwayat evaluasi sumatif",
     icon: GraduationCap,
-    color: "text-purple-600",
-    bg: "bg-purple-50",
-    border: "border-purple-100",
+    color: "text-[#9875A8]",
+    bg: "bg-[#F6F1F8]",
+    border: "border-[#EAE0EF]",
   },
 ];
 
@@ -123,7 +122,7 @@ function getCategory(slug?: string | null, name?: string | null) {
 function EmptyState({ message }: { message: string }) {
   return (
     <div className="rounded-xl border border-dashed border-slate-200 bg-slate-50/70 px-4 py-8 text-center">
-      <History className="mx-auto h-7 w-7 text-slate-300" />
+      <History className="mx-auto h-6 w-6 text-slate-300" />
       <p className="mt-2 text-sm text-slate-500">{message}</p>
     </div>
   );
@@ -277,61 +276,56 @@ export default async function ProgresBelajarPage() {
     <DashboardContainer>
       <div className="space-y-6 pb-10 pt-4">
         {/* HEADER */}
-        <section>
-          <h1 className="mt-1 text-2xl font-bold tracking-tight text-slate-800 sm:text-3xl">
-            Progres Belajar
-          </h1>
+        <section className="mb-6 rounded-xl border border-[#101F38] bg-[#101F38] p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold text-white">Progres Belajar</h2>
 
-          <p className="mt-2 text-sm leading-relaxed text-slate-500">
-            Lihat pencapaian dan riwayat perjalanan belajarmu di EduQuest.
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-white/75">
+            Lihat progres be;ajarmu dari seluruh aktivitas pembelajaran yang
+            telah disediakan.
           </p>
         </section>
 
         {/* TOTAL XP & BINTANG */}
         <section className="grid gap-4 sm:grid-cols-2">
           {/* TOTAL XP */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#142C52] to-[#326FBB] p-5 text-white shadow-sm sm:p-6">
-            <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/5" />
+          <div className="rounded-2xl border border-[#E1EAF3] bg-[#F2F6FB] p-5 sm:p-6">
+            <p className="text-sm font-medium text-[#62758A]">
+              Total XP Terkumpul
+            </p>
 
-            <div className="relative flex items-center gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10">
-                <Zap className="h-6 w-6 text-amber-300" />
-              </div>
+            <div className="mt-3 flex items-end gap-2">
+              <h2 className="text-3xl font-semibold tracking-tight text-[#294D73] sm:text-4xl">
+                {formatNumber(totalXP)}
+              </h2>
 
-              <div>
-                <p className="text-sm text-blue-100">Total XP Terkumpul</p>
+              <span className="mb-1 text-sm font-medium text-[#6885A4]">
+                XP
+              </span>
+            </div>
 
-                <h2 className="mt-1 text-3xl font-bold sm:text-4xl">
-                  {formatNumber(totalXP)}
-                  <span className="ml-2 text-base font-medium text-blue-100">
-                    XP
-                  </span>
-                </h2>
-              </div>
+            <div className="mt-5 h-1 w-full overflow-hidden rounded-full bg-[#DFE9F3]">
+              <div className="h-full w-full rounded-full bg-[#6D91B5]" />
             </div>
           </div>
 
           {/* TOTAL BINTANG */}
-          <div className="relative overflow-hidden rounded-2xl border border-amber-100 bg-gradient-to-br from-amber-50 to-white p-5 shadow-sm sm:p-6">
-            <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-amber-100/50" />
+          <div className="rounded-2xl border border-[#F0E7D5] bg-[#FCF9F2] p-5 sm:p-6">
+            <p className="text-sm font-medium text-[#82745E]">
+              Total Bintang Terkumpul
+            </p>
 
-            <div className="relative flex items-center gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-100">
-                <Star className="h-6 w-6 fill-amber-400 text-amber-500" />
-              </div>
+            <div className="mt-3 flex items-end gap-2">
+              <h2 className="text-3xl font-semibold tracking-tight text-[#987642] sm:text-4xl">
+                {formatNumber(totalStars)}
+              </h2>
 
-              <div>
-                <p className="text-sm text-slate-500">
-                  Total Bintang Terkumpul
-                </p>
+              <span className="mb-1 text-sm font-medium text-[#B0925D]">
+                Bintang
+              </span>
+            </div>
 
-                <h2 className="mt-1 text-3xl font-bold text-slate-800 sm:text-4xl">
-                  {formatNumber(totalStars)}
-                  <span className="ml-2 text-base font-medium text-amber-500">
-                    Bintang
-                  </span>
-                </h2>
-              </div>
+            <div className="mt-5 h-1 w-full overflow-hidden rounded-full bg-[#F0E8D9]">
+              <div className="h-full w-full rounded-full bg-[#C9AA75]" />
             </div>
           </div>
         </section>
@@ -339,11 +333,9 @@ export default async function ProgresBelajarPage() {
         {/* RIWAYAT AKTIVITAS */}
         <section className="space-y-4">
           <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-lg font-bold text-slate-800 sm:text-xl">
-                Riwayat Aktivitas
-              </h2>
-            </div>
+            <h2 className="text-lg font-semibold text-[#101F38] sm:text-xl">
+              Riwayat Aktivitas
+            </h2>
 
             <p className="mt-1 text-sm text-slate-500">
               Rekap reward dan riwayat pengerjaan setiap aktivitas.
@@ -357,18 +349,21 @@ export default async function ProgresBelajarPage() {
               return (
                 <details
                   key={category.key}
-                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-slate-300 hover:shadow-md"
+                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-200 hover:border-slate-300"
                 >
                   {/* HEADER KATEGORI */}
                   <summary className="flex cursor-pointer list-none items-center gap-3 p-4 sm:p-5 [&::-webkit-details-marker]:hidden">
                     <div
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${category.bg}`}
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${category.bg}`}
                     >
-                      <Icon className={`h-5 w-5 ${category.color}`} />
+                      <Icon
+                        className={`h-[18px] w-[18px] ${category.color}`}
+                        strokeWidth={1.8}
+                      />
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <h3 className="font-semibold text-slate-800">
+                      <h3 className="text-sm font-semibold text-slate-800 sm:text-base">
                         {category.title}
                       </h3>
 
@@ -379,28 +374,31 @@ export default async function ProgresBelajarPage() {
 
                     {/* TOTAL REWARD KATEGORI */}
                     <div className="hidden items-center gap-2 sm:flex">
-                      <span className="rounded-lg bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-600">
-                        {category.totalXP} XP
+                      <span className="rounded-lg bg-[#F0F5FA] px-3 py-1.5 text-sm font-medium text-[#527BA4]">
+                        {formatNumber(category.totalXP)} XP
                       </span>
 
-                      <span className="rounded-lg bg-amber-50 px-3 py-1.5 text-sm font-semibold text-amber-600">
-                        ⭐ {category.totalStars}
+                      <span className="rounded-lg bg-[#FBF6EB] px-3 py-1.5 text-sm font-medium text-[#A8864D]">
+                        {formatNumber(category.totalStars)} Bintang
                       </span>
                     </div>
 
-                    <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition-transform group-open:rotate-180" />
+                    <ChevronDown
+                      className="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-180"
+                      strokeWidth={1.8}
+                    />
                   </summary>
 
                   {/* DETAIL RIWAYAT */}
                   <div className="border-t border-slate-100">
                     {/* REWARD MOBILE */}
                     <div className="flex flex-wrap gap-2 px-4 pt-4 sm:hidden">
-                      <span className="rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-600">
-                        {category.totalXP} XP
+                      <span className="rounded-lg bg-[#F0F5FA] px-3 py-1.5 text-xs font-medium text-[#527BA4]">
+                        {formatNumber(category.totalXP)} XP
                       </span>
 
-                      <span className="rounded-lg bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-600">
-                        ⭐ {category.totalStars} Bintang
+                      <span className="rounded-lg bg-[#FBF6EB] px-3 py-1.5 text-xs font-medium text-[#A8864D]">
+                        {formatNumber(category.totalStars)} Bintang
                       </span>
                     </div>
 
@@ -431,14 +429,17 @@ export default async function ProgresBelajarPage() {
                             >
                               {/* ICON */}
                               <div
-                                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${category.bg}`}
+                                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${category.bg}`}
                               >
-                                <Icon className={`h-5 w-5 ${category.color}`} />
+                                <Icon
+                                  className={`h-4 w-4 ${category.color}`}
+                                  strokeWidth={1.8}
+                                />
                               </div>
 
                               {/* NAMA MATERI & DETAIL */}
                               <div className="min-w-0 flex-1">
-                                <h4 className="text-sm font-semibold leading-relaxed text-slate-800">
+                                <h4 className="text-sm font-medium leading-relaxed text-slate-800">
                                   {material?.judul ??
                                     activity?.nama ??
                                     category.title}
@@ -448,15 +449,15 @@ export default async function ProgresBelajarPage() {
                                   {activity?.nama ?? category.title}
                                 </p>
 
-                                <p className="mt-2 flex items-center gap-1 text-xs text-slate-400">
-                                  <Clock className="h-3.5 w-3.5" />
+                                <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-400">
+                                  <Clock className="h-3 w-3" />
                                   {formatDate(attempt.selesai_at)}
                                 </p>
 
                                 {/* NILAI */}
                                 {attempt.nilai !== null && (
                                   <div className="mt-2 inline-flex rounded-md bg-slate-50 px-2.5 py-1 text-xs text-slate-600">
-                                    Nilai:{" "}
+                                    Nilai:
                                     <span className="ml-1 font-semibold">
                                       {attempt.nilai}
                                     </span>
@@ -467,15 +468,14 @@ export default async function ProgresBelajarPage() {
                               {/* XP & BINTANG PER PERCOBAAN */}
                               <div className="flex shrink-0 flex-col items-end gap-1.5">
                                 {xp > 0 && (
-                                  <span className="inline-flex items-center gap-1 rounded-lg bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-600">
-                                    <Zap className="h-3.5 w-3.5" />+{xp} XP
+                                  <span className="rounded-lg bg-[#F0F5FA] px-2.5 py-1 text-xs font-medium text-[#527BA4]">
+                                    +{formatNumber(xp)} XP
                                   </span>
                                 )}
 
                                 {stars > 0 && (
-                                  <span className="inline-flex items-center gap-1 rounded-lg bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-600">
-                                    <Star className="h-3.5 w-3.5 fill-amber-400" />
-                                    +{stars}
+                                  <span className="rounded-lg bg-[#FBF6EB] px-2.5 py-1 text-xs font-medium text-[#A8864D]">
+                                    +{formatNumber(stars)} Bintang
                                   </span>
                                 )}
 
